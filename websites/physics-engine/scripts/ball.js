@@ -7,6 +7,9 @@ class Ball{
         this.vy = vy;
         this.radius = radius;
         this.color = color;
+        this.pastX = [];
+        this.pastY = [];
+        this.afterEffectColors = ['red', 'orange', 'yellow', 'green', 'blue', 'purple'];
     }
 
     updateBall(fps) {
@@ -41,14 +44,40 @@ class Ball{
     }
 
     drawBall() {
+
         let canvas = document.querySelector("canvas");
         let ctx = canvas.getContext("2d");
+
+        //Draw prior 7 balls in rainbow colors, starting with the last
+        for (let i = 6; i >= 0; i--) {
+            if (!isNaN(this.pastX[i]) && !isNaN(this.pastY[i])) {
+                ctx.beginPath();
+                ctx.globalAlpha = i / 11;
+                ctx.fillStyle = "#" + this.color;
+                ctx.arc(this.pastX[i], this.pastY[i], this.radius, 0, 2*Math.PI);
+                ctx.fill();
+                ctx.lineWidth = 0;
+                ctx.stroke();
+            }
+        }
+        ctx.globalAlpha = 1;
+
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
         ctx.fillStyle = "#" + this.color;
         ctx.fill();
         ctx.lineWidth = 0;
         ctx.stroke();
+
+        //Update the prior 7 ball values
+        for (let i = 0; i < 6; i++) {
+            this.pastX[i] = this.pastX[i+1];
+            this.pastY[i] = this.pastY[i+1]
+        }
+        this.pastX[6] = this.x;
+        this.pastY[6] = this.y;
+
+
     }
 
     checkBallWithBallCollision(ball2) {
