@@ -147,7 +147,7 @@ function roll() {
         }
     }
     //Calculate inclusive odds
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 6; i > 0; i--) {
         let inclusive3Odds = odds.threeOfAKind[i] + odds.fourOfAKind[i] + odds.fiveOfAKind[i];
         if (inclusive3Odds > 1) inclusive3Odds = 1; //Make sure we don't go over 100%
         let inclusive4Odds = odds.fourOfAKind[i] + odds.fiveOfAKind[i];
