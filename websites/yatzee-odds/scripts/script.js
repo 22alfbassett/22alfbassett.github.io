@@ -61,35 +61,35 @@ function roll() {
 
         odds.fourOfAKind[i] = oddsOfX(4, i, dice);
         document.getElementById("4-of-a-kind-odds-" + i).textContent = i + "'s: " + (odds.fourOfAKind[i] * 100).toFixed(2) + "%";
-        if (!(fourOfAKindGot && numGot[i])) {
-            if (odds.fourOfAKind[i] !== 1 && odds.fourOfAKind[i] > highestOdds[1]) {
-                secondBestOdds[0] = highestOdds[0];
-                secondBestOdds[1] = highestOdds[1];
-                highestOdds[0] = "4-of-a-kind of " + i + "'s";
-                highestOdds[1] = odds.fourOfAKind[i];
-                sameOdds = [];
-            } else if (odds.fourOfAKind[i] == highestOdds[1]) sameOdds.push("4-of-a-kind of " + i + "'s");
-            else if (odds.fourOfAKind[i] !== 1 && odds.fourOfAKind[i] > secondBestOdds[1]) {
-                secondBestOdds[0] = "4-of-a-kind of " + i + "'s";
-                secondBestOdds[1] = odds.fourOfAKind[i];
-            }
-        }
+        // if (!(fourOfAKindGot && numGot[i])) {
+        //     if (odds.fourOfAKind[i] !== 1 && odds.fourOfAKind[i] > highestOdds[1]) {
+        //         secondBestOdds[0] = highestOdds[0];
+        //         secondBestOdds[1] = highestOdds[1];
+        //         highestOdds[0] = "4-of-a-kind of " + i + "'s";
+        //         highestOdds[1] = odds.fourOfAKind[i];
+        //         sameOdds = [];
+        //     } else if (odds.fourOfAKind[i] == highestOdds[1]) sameOdds.push("4-of-a-kind of " + i + "'s");
+        //     else if (odds.fourOfAKind[i] !== 1 && odds.fourOfAKind[i] > secondBestOdds[1]) {
+        //         secondBestOdds[0] = "4-of-a-kind of " + i + "'s";
+        //         secondBestOdds[1] = odds.fourOfAKind[i];
+        //     }
+        // }
 
         odds.threeOfAKind[i] = oddsOfX(3, i, dice);
         document.getElementById("3-of-a-kind-odds-" + i).textContent = i + "'s: " + (odds.threeOfAKind[i] * 100).toFixed(2) + "%";
-        if (!(threeOfAKindGot && numGot[i])) {
-            if (odds.threeOfAKind[i] !== 1 && odds.threeOfAKind[i] > highestOdds[1]) {
-                secondBestOdds[0] = highestOdds[0];
-                secondBestOdds[1] = highestOdds[1];
-                highestOdds[0] = "3-of-a-kind of " + i + "'s";
-                highestOdds[1] = odds.threeOfAKind[i];
-                sameOdds = [];
-            } else if (odds.threeOfAKind[i] == highestOdds[1]) sameOdds.push("3-of-a-kind of " + i + "'s");
-            else if (odds.threeOfAKind[i] !== 1 && odds.threeOfAKind[i] > secondBestOdds[1]) {
-                secondBestOdds[0] = "3-of-a-kind of " + i + "'s";
-                secondBestOdds[1] = odds.threeOfAKind[i];
-            }
-        }
+        // if (!(threeOfAKindGot && numGot[i])) {
+        //     if (odds.threeOfAKind[i] !== 1 && odds.threeOfAKind[i] > highestOdds[1]) {
+        //         secondBestOdds[0] = highestOdds[0];
+        //         secondBestOdds[1] = highestOdds[1];
+        //         highestOdds[0] = "3-of-a-kind of " + i + "'s";
+        //         highestOdds[1] = odds.threeOfAKind[i];
+        //         sameOdds = [];
+        //     } else if (odds.threeOfAKind[i] == highestOdds[1]) sameOdds.push("3-of-a-kind of " + i + "'s");
+        //     else if (odds.threeOfAKind[i] !== 1 && odds.threeOfAKind[i] > secondBestOdds[1]) {
+        //         secondBestOdds[0] = "3-of-a-kind of " + i + "'s";
+        //         secondBestOdds[1] = odds.threeOfAKind[i];
+        //     }
+        // }
 
         if (i < 3) {
             odds.lgStraight[i] = oddsOfLargeStraight(i, dice);
@@ -112,19 +112,19 @@ function roll() {
         if (i < 4) {
             odds.smStraight[i] = oddsOfSmallStraight(i, dice);
             document.getElementById("sm-straight-odds-" + i).textContent = i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3) + ": " + (odds.smStraight[i] * 100).toFixed(2) + "%";
-            if (!(smStraightGot)) {
-                if (odds.smStraight[i] !== 1 && odds.smStraight[i] > highestOdds[1]) {
-                    secondBestOdds[0] = highestOdds[0];
-                    secondBestOdds[1] = highestOdds[1];
-                    highestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
-                    highestOdds[1] = odds.smStraight[i];
-                    sameOdds = [];
-                } else if (odds.smStraight[i] == highestOdds[1]) sameOdds.push("Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3));
-                else if (odds.smStraight[i] !== 1 && odds.smStraight[i] > secondBestOdds[1]) {
-                    secondBestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
-                    secondBestOdds[1] = odds.smStraight[i];
-                }
-            }
+            // if (!(smStraightGot)) {
+            //     if (odds.smStraight[i] !== 1 && odds.smStraight[i] > highestOdds[1]) {
+            //         secondBestOdds[0] = highestOdds[0];
+            //         secondBestOdds[1] = highestOdds[1];
+            //         highestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
+            //         highestOdds[1] = odds.smStraight[i];
+            //         sameOdds = [];
+            //     } else if (odds.smStraight[i] == highestOdds[1]) sameOdds.push("Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3));
+            //     else if (odds.smStraight[i] !== 1 && odds.smStraight[i] > secondBestOdds[1]) {
+            //         secondBestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
+            //         secondBestOdds[1] = odds.smStraight[i];
+            //     }
+            // }
         }
         for (let j = 1; j <= 6; j++) {
             if (j != i) {
@@ -163,6 +163,48 @@ function roll() {
             else inclusiveSmStraightOdds = odds.smStraight[3] + odds.lgStraight[2];
             if (inclusiveSmStraightOdds > 1) inclusiveSmStraightOdds = 1;
             document.getElementById("sm-straight-odds-inc-" + i).textContent = i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3) + ": " + (inclusiveSmStraightOdds * 100).toFixed(2) + "%";
+
+            //Check if highest odds needs to be updated
+            if (inclusiveSmStraightOdds !== 1 && inclusiveSmStraightOdds > highestOdds[1]) {
+                secondBestOdds[0] = highestOdds[0];
+                secondBestOdds[1] = highestOdds[1];
+                highestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
+                highestOdds[1] = inclusiveSmStraightOdds;
+                sameOdds = [];
+            } else if (inclusiveSmStraightOdds == highestOdds[1]) sameOdds.push("Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3));
+            else if (inclusiveSmStraightOdds !== 1 && inclusiveSmStraightOdds > secondBestOdds[1]) {
+                secondBestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
+                secondBestOdds[1] = inclusiveSmStraightOdds;
+            }
+        }
+
+        //Highest odds update
+        if (!(threeOfAKindGot && numGot[i])) {
+            if (inclusive3Odds !== 1 && inclusive3Odds > highestOdds[1]) {
+                secondBestOdds[0] = highestOdds[0];
+                secondBestOdds[1] = highestOdds[1];
+                highestOdds[0] = "3-of-a-kind of " + i + "'s";
+                highestOdds[1] = inclusive3Odds;
+                sameOdds = [];
+            } else if (inclusive3Odds == highestOdds[1]) sameOdds.push("3-of-a-kind of " + i + "'s");
+            else if (inclusive3Odds !== 1 && inclusive3Odds > secondBestOdds[1]) {
+                secondBestOdds[0] = "3-of-a-kind of " + i + "'s";
+                secondBestOdds[1] = inclusive3Odds;
+            }
+        }
+
+        if (!(fourOfAKindGot && numGot[i])) {
+            if (inclusive4Odds !== 1 && inclusive4Odds > highestOdds[1]) {
+                secondBestOdds[0] = highestOdds[0];
+                secondBestOdds[1] = highestOdds[1];
+                highestOdds[0] = "4-of-a-kind of " + i + "'s";
+                highestOdds[1] = inclusive4Odds;
+                sameOdds = [];
+            } else if (inclusive4Odds == highestOdds[1]) sameOdds.push("4-of-a-kind of " + i + "'s");
+            else if (inclusive4Odds !== 1 && inclusive4Odds > secondBestOdds[1]) {
+                secondBestOdds[0] = "4-of-a-kind of " + i + "'s";
+                secondBestOdds[1] = inclusive4Odds;
+            }
         }
     }
     bestRollText.textContent = highestOdds[0];
