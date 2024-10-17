@@ -165,16 +165,18 @@ function roll() {
             document.getElementById("sm-straight-odds-inc-" + i).textContent = i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3) + ": " + (inclusiveSmStraightOdds * 100).toFixed(2) + "%";
 
             //Check if highest odds needs to be updated
-            if (inclusiveSmStraightOdds !== 1 && inclusiveSmStraightOdds > highestOdds[1]) {
-                secondBestOdds[0] = highestOdds[0];
-                secondBestOdds[1] = highestOdds[1];
-                highestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
-                highestOdds[1] = inclusiveSmStraightOdds;
-                sameOdds = [];
-            } else if (inclusiveSmStraightOdds == highestOdds[1]) sameOdds.push("Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3));
-            else if (inclusiveSmStraightOdds !== 1 && inclusiveSmStraightOdds > secondBestOdds[1]) {
-                secondBestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
-                secondBestOdds[1] = inclusiveSmStraightOdds;
+            if (!smStraightGot) {
+                if (inclusiveSmStraightOdds !== 1 && inclusiveSmStraightOdds > highestOdds[1]) {
+                    secondBestOdds[0] = highestOdds[0];
+                    secondBestOdds[1] = highestOdds[1];
+                    highestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
+                    highestOdds[1] = inclusiveSmStraightOdds;
+                    sameOdds = [];
+                } else if (inclusiveSmStraightOdds == highestOdds[1]) sameOdds.push("Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3));
+                else if (inclusiveSmStraightOdds !== 1 && inclusiveSmStraightOdds > secondBestOdds[1]) {
+                    secondBestOdds[0] = "Small Straight of " + i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3);
+                    secondBestOdds[1] = inclusiveSmStraightOdds;
+                }
             }
         }
 
