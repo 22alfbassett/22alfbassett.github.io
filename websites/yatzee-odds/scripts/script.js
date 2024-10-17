@@ -28,7 +28,7 @@ function roll() {
     let lgStraightGot = document.getElementById('lg-straight-check').checked;
     let threeOfAKindGot = document.getElementById('3-of-a-kind-check').checked;
     let fourOfAKindGot = document.getElementById('4-of-a-kind-check').checked;
-    let yatzeeGot = document.getElementById('yatzee-check').checked;
+    let yahtzeeGot = document.getElementById('yahtzee-check').checked;
     let fullHouseGot = document.getElementById('full-house-check').checked;
 
     //Update dice list
@@ -43,18 +43,18 @@ function roll() {
     secondBestOdds = ["", 0];
     for (let i = 6; i > 0; i--) { //Start high, then go low
         odds.fiveOfAKind[i] = oddsOfX(5, i, dice);
-        document.getElementById("yatzee-odds-" + i).textContent = i + "'s: " + (odds.fiveOfAKind[i] * 100).toFixed(2) + "%";
-        if (!(yatzeeGot && numGot[i])) {
+        document.getElementById("yahtzee-odds-" + i).textContent = i + "'s: " + (odds.fiveOfAKind[i] * 100).toFixed(2) + "%";
+        if (!(yahtzeeGot && numGot[i])) {
             if (odds.fiveOfAKind[i] !== 1 && odds.fiveOfAKind[i] > highestOdds[1]) {
                 secondBestOdds[0] = highestOdds[0];
                 secondBestOdds[1] = highestOdds[1];
-                highestOdds[0] = "Yatzee of " + i + "'s";
+                highestOdds[0] = "Yahtzee of " + i + "'s";
                 highestOdds[1] = odds.fiveOfAKind[i];
                 sameOdds = [];
             }
-            else if (odds.fiveOfAKind[i] == highestOdds[1]) sameOdds.push("Yatzee of " + i + "'s");
+            else if (odds.fiveOfAKind[i] == highestOdds[1]) sameOdds.push("Yahtzee of " + i + "'s");
             else if (odds.fiveOfAKind[i] !== 1 && odds.fiveOfAKind[i] > secondBestOdds[1]) {
-                secondBestOdds[0] = "Yatzee of " + i + "'s";
+                secondBestOdds[0] = "Yahtzee of " + i + "'s";
                 secondBestOdds[1] = odds.fiveOfAKind[i];
             }
         }
@@ -154,7 +154,7 @@ function roll() {
         if (inclusive4Odds > 1) inclusive4Odds = 1; //Make sure we don't go over 100%
         document.getElementById("3-of-a-kind-odds-inc-" + i).textContent = i + "'s: " + (inclusive3Odds * 100).toFixed(2) + "%";
         document.getElementById("4-of-a-kind-odds-inc-" + i).textContent = i + "'s: " + (inclusive4Odds * 100).toFixed(2) + "%";
-        document.getElementById("yatzee-odds-inc-" + i).textContent = i + "'s: " + (odds.fiveOfAKind[i] * 100).toFixed(2) + "%";
+        document.getElementById("yahtzee-odds-inc-" + i).textContent = i + "'s: " + (odds.fiveOfAKind[i] * 100).toFixed(2) + "%";
         if (i < 4) {
             if (i < 3) document.getElementById("lg-straight-odds-inc-" + i).textContent = i + "-" + (i+1) + "-" + (i+2) + "-" + (i+3) + "-" + (i+4) + ": " + (odds.lgStraight[i] * 100).toFixed(2) + "%";
             let inclusiveSmStraightOdds;
