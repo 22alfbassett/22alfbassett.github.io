@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+
+:root {
+    font-size: 16px;
+    font-family: "Arima", serif;
+    font-optical-sizing: auto;
+    --text-primary: white;
+    --text-secondary: light gray;
+    --bg-primary: #232323;
+    --bg-secondary: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0 20%;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+header, header::after{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    font-weight: bold;
+    font-size: 100px;
+    background: conic-gradient(from var(--angle), red, orange, yellow, green, blue, purple, red);
+    animation: 3s spin linear infinite;
+    background-clip: text;
+    position: relative;
+}
+
+header::after {
+    content: 'Notes';
+    position: absolute;
+    filter: blur(1.5rem);
+    width: 100%;
+    height: 100%;
+    font-size: 200px;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
+
+@keyframes spin-cw {
+    from {
+        --angle: 360deg;
+    }
+    to {
+        --angle: 0deg;
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.notes {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.note-container {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: left;
+    border-bottom: 1px solid white;
+    padding: 15px 0;
+    align-items: center;
+}
+
+.note-container h4 {
+    font-size: 25px;
+    padding: 0 20px;
+    width: 30%;
+}
+
+.notes *:last-child {
+    border-bottom:  1px solid transparent;
+}
+
+.note-container *:last-child {
+    margin-left: auto;
+}
+
+.note-container *:nth-last-child(2) {
+    width: 40%;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    padding: 10px 0;
+}
+
+.options button {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.options button:hover {
+    cursor: pointer;
+}
+
+.options h1 {
+    background-color: black;
+    animation: 3s spin linear infinite;
+    font-size: 25px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.options h1::before, .options h1::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    translate: -50% -50%;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    border-radius: 20px;
+    padding: 2px;
+    background-image: conic-gradient(from var(--angle), blue, transparent);
+    animation: 3s spin-cw ease-in-out infinite
+}
+
+.options h1::after {
+    filter: blur(1rem);
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+}
+
+.add-note {
+    border: 1px solid black;
+}
+
+.add-note, .add-note::after{
+    display: flex;
+    background-image: conic-gradient(from var(--angle), red, blue, red);
+    animation: 3s spin-cw linear infinite;
+    width: 90%;
+    padding: 20px 20px;
+    justify-content: start;
+    border-radius: 10px;
+    position: relative;
+}
+
+.add-note::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    height: 90%;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    filter: blur(1.5rem);
+    opacity: 0.4;
+}
+
+.add-note input {
+    border: none;
+    background-color: #232323;
+    border-radius: 10px;
+    font-family: "Arima", serif;
+    box-shadow: 2px 2px black;
+    color: white;
+}
+
+.add-note #inputName {
+    font-size: large;
+    width: 20%;
+    height: 40px;
+    padding: 5px;
+}
+
+.add-note #inputDescription {
+    font-size: x-small;
+    width: 40%;
+    margin: 1% 10px;
+    padding: 10px 5px;
+}
+
+.add-note *:last-child {
+    margin-left: 40px;
+    background-color: #232323;
+    width: 20%;
+    color: white;
+    padding: 10px 10px;
+    text-wrap: nowrap;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 800px) {
+    html {
+        margin: 0 5%;
+    }
+    header {
+        font-size: 50px;
+    }
+    header::after {
+        font-size: 100px
+    }
+    .options {
+        width: 80%;
+        justify-content: space-around;
+    }
+    .options h1 {
+        font-size: 20px;
+    }
+    .add-note {
+        font-size: xx-small;
+    }
+    .add-note #inputDescription {
+        padding: 10px 5px;
+        font-size: xx-small;
+        height: 100%;
+        width: 30%;
+    }
+    .add-note #inputName{
+        padding: 10px 0;
+        font-size: xx-small;
+        height: 100%;
+        width: 20%;
+    }
+    .add-note button {
+        font-size: xx-small;
+        padding: 10px 5px;
+        margin-left: auto;
+    };
+}
