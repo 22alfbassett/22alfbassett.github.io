@@ -1,0 +1,97 @@
+:root {
+    background-image: linear-gradient(to right, white, lightblue);
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: grey;
+    justify-content: center;
+    margin-left: 25vw;
+    margin-top: 10vh;
+    width: 50vw;
+    height: 80vh;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+#answer {
+    display: flex;
+    width: 80%;
+    justify-content: right;
+    align-items: center;
+    height: 20%;
+    background-color: white;
+    margin-top: 5%;
+    border: 2px solid black;
+    font-size: xx-large;
+    padding-right: 5px;
+}
+
+.number-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+    margin: 2%;
+    height: 90%;
+}
+
+#add {
+    height: 45%;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    height: 20%;
+    margin: 10% 0;
+    border-radius: 3px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-image: conic-gradient(from var(--angle), lightblue, white, lightblue);
+    animation: 3s spin linear infinite;
+}
+
+@media screen  and (max-width: 600px) {
+    .container {
+        margin-left: 5vw;
+        margin-top: 5vh;
+        width: 90vw;
+        height: 90vh;
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    }
+    to {
+        --angle: 360deg;
+    }
+}
