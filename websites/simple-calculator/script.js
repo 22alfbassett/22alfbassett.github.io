@@ -21,6 +21,7 @@ function handle(elementid) {
         }
         else if (secondNum === '' || secondNum === '-') {
             ans.innerHTML = "ERROR";
+            secondNum = '';
         }
         else {
             fullCalcDone = false;
@@ -48,11 +49,20 @@ function handle(elementid) {
     else if (elementid === 'sqrt') {
         if (calculationDone && !fullCalcDone) {
             runningTotal = 0;
+            secondNum = '';
             ans.innerHTML = "ERROR";
+        }
+        else if (fullCalcDone) {
+            runningTotal = Math.sqrt(runningTotal);
+            secondNum = '';
+            nextOperation = 'add';
+            ans.innerHTML = runningTotal;
         }
         else {
             imCalc();
+            nextOperation = 'add';
             runningTotal = Math.sqrt(runningTotal);
+            secondNum = '';
             ans.innerHTML = runningTotal;
         }
     }
