@@ -1,9 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
-    --lightmode-background-color: #c4c4c4;
     --darkmode-background-color: #414141;
-    --lightmode-text-color: #5f5f5f;
     --darkmode-text-color: #c4c4c4;
     font-family: "JetBrains Mono", monospace;
 }
@@ -12,6 +10,25 @@
     margin: 0;
     padding: 0;
 }
+
+.dark-mode {
+    color: var(--darkmode-text-color);
+    background: var(--darkmode-background-color);
+}
+
+.dark-mode button { /* Why do i have to do this */
+    background-color: var(--darkmode-background-color);
+    color: var(--darkmode-text-color);
+}
+
+button {
+    position: absolute;
+    top: -20px;
+    left: 10px;
+    padding: 10px;
+    z-index: 1;
+}
+
 
 body {
     display: flex;
@@ -29,6 +46,7 @@ body {
     text-wrap: nowrap;
     margin: 0;
     font-size: 4px;
+    white-space-collapse: preserve-spaces;
 }
 
 .time-container {
@@ -74,4 +92,31 @@ body h3 {
 
 body h4 {
     font-size: 3vh;
+}
+
+@media screen and (max-width: 700px) {
+    body {
+        justify-content: end;
+        align-items: center;
+        padding: 0;
+    }
+    body h1 {
+        font-size: 10vh;
+        margin: 0;
+    }
+    body h3 {
+        font-size: 4vh;
+        margin: 0;
+    }
+    body h4 {
+        font-size: 2vh;
+        margin: 0 0 10px;
+    }
+    #clock {
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
 }
