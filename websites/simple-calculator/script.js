@@ -62,7 +62,7 @@ function handle(elementid) {
             imCalc();
             nextOperation = 'add';
             runningTotal = Math.sqrt(runningTotal);
-            secondNum = '';
+            secondNum = '0';
             ans.innerHTML = runningTotal;
         }
     }
