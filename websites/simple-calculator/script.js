@@ -54,7 +54,7 @@ function handle(elementid) {
         }
         else if (fullCalcDone) {
             runningTotal = Math.sqrt(runningTotal);
-            secondNum = '';
+            secondNum = '0';
             nextOperation = 'add';
             ans.innerHTML = runningTotal;
         }
