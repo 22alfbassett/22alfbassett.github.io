@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
-    --darkmode-background-color: #121212;
-    --darkmode-text-color: #FFFFFF;
+    --darkmode-background-color: #414141;
+    --darkmode-text-color: #c4c4c4;
     font-family: "JetBrains Mono", monospace;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 .dark-mode {
@@ -30,7 +31,7 @@ button {
 }
 
 
-body {
+.main-content-container {
     display: flex;
     flex-direction: column;
     align-items: end;
@@ -54,37 +55,82 @@ body {
     align-items: baseline;
 }
 
-body *{
+.main-content-container *{
     margin: 30px 0;
 }
 
-body h1 {
+.main-content-container h1 {
     font-size: 20vh;
 }
 
-body h3 {
+.main-content-container h3 {
     font-size: 5vh;
 }
 
-body h4 {
+.main-content-container h4 {
     font-size: 3vh;
 }
 
+.modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.4rem;
+    width: fit-content;
+    padding: 1.3rem;
+    position: absolute;
+    top: 10%;
+    right: 20%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 2;
+}
+
+.dark-mode .modal {
+    background-color: var(--darkmode-background-color);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 1;
+}
+
+.hoverable {
+    text-decoration: underline;
+}
+
+.hoverable:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
 @media screen and (max-width: 700px) {
-    body {
+    .main-content-container {
         justify-content: end;
         align-items: center;
         padding: 0;
     }
-    body h1 {
+    .main-content-container h1 {
         font-size: 8vh;
         margin: 0;
     }
-    body h3 {
+    .main-content-container h3 {
         font-size: 3vh;
         margin: 0;
     }
-    body h4 {
+    .main-content-container h4 {
         font-size: 2vh;
         margin: 0 0 100px;
     }
